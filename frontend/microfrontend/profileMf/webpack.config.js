@@ -9,7 +9,7 @@ const printCompilationMessage = require('./compilation.config.js');
 
 module.exports = (_, argv) => ({
   output: {
-    publicPath: "http://localhost:8081/",
+    publicPath: "http://localhost:8082/",
   },
 
   resolve: {
@@ -17,7 +17,7 @@ module.exports = (_, argv) => ({
   },
 
   devServer: {
-    port: 8081,
+    port: 8082,
     historyApiFallback: true,
     watchFiles: [path.resolve(__dirname, 'src')],
     onListening: function (devServer) {
@@ -62,10 +62,14 @@ module.exports = (_, argv) => ({
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "authMf",
+      name: "userProfileMf",
       filename: "remoteEntry.js",
-      remotes: {},
-      exposes: {},
+      remotes: {
+        'host': 'host@http://localhost:8080/remoteEntry.js',
+      },
+      exposes: {
+        './UserProfileMf': './src/components/UserProfileMf',
+      },
       shared: {
         ...deps,
         react: {

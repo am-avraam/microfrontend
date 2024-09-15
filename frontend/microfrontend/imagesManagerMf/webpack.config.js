@@ -62,12 +62,10 @@ module.exports = (_, argv) => ({
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "profile",
+      name: "imagesManagerMf",
       filename: "remoteEntry.js",
       remotes: {},
-      exposes: {
-          './UsersTestControl': './src/components/UsersTestControl.js',
-      },
+      exposes: {},
       shared: {
         ...deps,
         react: {

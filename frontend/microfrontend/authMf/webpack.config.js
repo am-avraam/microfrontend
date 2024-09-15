@@ -65,7 +65,9 @@ module.exports = (_, argv) => ({
       name: "authMf",
       filename: "remoteEntry.js",
       remotes: {},
-      exposes: {},
+      exposes: {
+        './Authentication': './src/components/Authentication',
+      },
       shared: {
         ...deps,
         react: {

@@ -9,7 +9,7 @@ const printCompilationMessage = require('./compilation.config.js');
 
 module.exports = (_, argv) => ({
   output: {
-    publicPath: "http://localhost:8083/",
+    publicPath: "http://localhost:8080/",
   },
 
   resolve: {
@@ -17,7 +17,7 @@ module.exports = (_, argv) => ({
   },
 
   devServer: {
-    port: 8083,
+    port: 8080,
     historyApiFallback: true,
     watchFiles: [path.resolve(__dirname, 'src')],
     onListening: function (devServer) {
@@ -62,11 +62,14 @@ module.exports = (_, argv) => ({
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "images-delete",
+      name: "host",
       filename: "remoteEntry.js",
-      remotes: {},
+      remotes: {
+        'userProfileMf': 'profile@http://localhost:8081/remoteEntry.js',
+        'authMf': 'imagesDelete@http://localhost:8080/remoteEntry.js',
+      },
       exposes: {
-          './ImagesDeleteTestControl': './src/components/ImagesDeleteTestControl.js',
+        './PopupWithForm': './src/components/PopupWithForm',
       },
       shared: {
         ...deps,

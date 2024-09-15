@@ -5,7 +5,7 @@ import Login from "./Login";
 import InfoTooltip from "./InfoTooltip";
 import * as auth from "../utils/auth.js";
 
-function AuthMf({ type }) {
+function Authentication({ type }) {
     const [isInfoToolTipOpen, setIsInfoToolTipOpen] = React.useState(false);
     const [tooltipStatus, setTooltipStatus] = React.useState("");
     const history = useHistory();
@@ -62,4 +62,4 @@ function AuthMf({ type }) {
     );
 }
 
-export default AuthMf;
+export default Authentication;
