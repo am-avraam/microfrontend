@@ -1,3 +1,5 @@
+# №1 Деление Mesto на микрофронтенды
+
 ### Обоснование
 
 Для разбиения монолитного микрофронтенда использую Webpack Module Federation, т.к. весь проект написан на одном фреймворке (библиотеке) - React.  
@@ -124,3 +126,8 @@
 
 ### Иконки (`images/`)
 - `logo`
+
+
+# №2 Декомпозиция монолита на микросервисы
+
+### Ссылка: https://drive.google.com/file/d/1fXSFvh9srnSmeONKVHzpZ8HFw5HDcoLj/view?usp=sharing
